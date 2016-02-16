@@ -5,8 +5,11 @@ package cse360assign3;
  *
  */
 public class Calculator {
-	/** total is the value we are operating upon */
+	/** total is the value we are operating upon
+	 * str will be used for return history */
+	
 	private int total;
+	private String str = "";
 	
 	/**constructor for calculator
 	 * 
@@ -15,6 +18,7 @@ public class Calculator {
 	
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		str = str + "0";
 	}
 	
 	/** Returns the global total value
@@ -33,6 +37,7 @@ public class Calculator {
 	
 	public void add (int value) {
 		total = total + value;
+		str = str + " + " + Integer.toString(value);
 	}
 	
 	/** Subtracts parameter from the total
@@ -42,6 +47,7 @@ public class Calculator {
 	
 	public void subtract (int value) {
 		total = total - value;
+		str = str + " - " + Integer.toString(value);
 	}
 	
 	/** Multiplies by the value
@@ -51,6 +57,7 @@ public class Calculator {
 	
 	public void multiply (int value) {
 		total = total * value;
+		str = str + " * " + Integer.toString(value);
 	}
 	
 	/** Divides by param value
@@ -67,6 +74,7 @@ public class Calculator {
 		{
 			total = (Integer) (total / value);
 		}
+		str = str + " / " + Integer.toString(value);
 	}
 	
 	/** returns what values have been operated upon the total
@@ -75,6 +83,6 @@ public class Calculator {
 	 */
 	
 	public String getHistory () {
-		return "";
+		return str;
 	}
 }
